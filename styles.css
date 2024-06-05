@@ -1,0 +1,478 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+p{
+	margin-top: 10px;
+	font-size: 13px;
+	text-align: justify;
+}
+.container, .book-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container{
+	width: 100%;
+	height: 100vh;
+	background: radial-gradient(circle, #FFFFFF 5%, #000033 35%);
+    position: relative; 
+    overflow: hidden
+
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+.image {
+    position: absolute;
+    right: -80px;  /* Mueve la imagen hacia la derecha desde el borde derecho del contenedor */
+    bottom: -40px; /* Mueve la imagen hacia arriba desde el borde inferior del contenedor */
+    width: 200px;  /* Ancho fijo de la imagen */
+    height: 200px; /* Altura fija de la imagen */
+    background-size: contain; 
+    background-repeat: no-repeat;
+    display: none;  /* Asegura que la imagen no está oculta */
+    z-index: 2000;   /* Asegura que la imagen esté por encima de otros elementos */
+	pointer-events: none; /* Evita que las imágenes interfieran con los clics */
+}
+#image1 {  
+    right: -20%; 
+    top: 92%;
+	size: 10%;
+}
+
+#image2 {   
+    right: 110%;
+    top: 94%;
+}
+
+#image3 {  
+    right: 33%;
+    top: 95%;
+}
+
+#image4 {  
+    right: 33%;
+    bottom: 75%;
+}
+
+#image5 {  
+    right: 95%;
+    bottom: 75%;
+}
+#image6 {  
+    left: 99%;
+    bottom: 5%;
+	transform: translate(-50%, -50%) rotate(83deg);
+}
+#image7 {  
+    left: 85%;
+    bottom: 85%;
+}
+#image8 {  
+    right: 155%;
+    bottom: 5%;
+	transform: translate(-50%, -50%) rotate(83deg);
+}
+#image9 {  
+    right: 155%;
+    bottom: 85%;
+}
+.image-1 {
+    background-image: url('img/cloud1.png'); 
+}
+.image-2 {
+    background-image: url('img/cloud2.png');
+}
+.image-3 {
+    background-image: url('img/cloud3.png'); 
+}
+.image-4 {
+    background-image: url('img/cloud4.png'); 
+}
+.image-5 {
+    background-image: url('img/cloud5.png'); 
+}
+.image-6 {
+    background-image: url('img/cloud6.png'); 
+}
+.image-7 {
+    background-image: url('img/cloud7.png'); 
+}
+.image-8 {
+    background-image: url('img/cloud8.png'); 
+}
+.image-9 {
+    background-image: url('img/cloud9.png'); 
+}
+
+.book-content{
+	width: 65%;
+	min-width: 250px;
+	max-width: 450px;
+	height: 520px;
+	position: relative;
+	perspective: 1000px;
+	transition: 1s;
+}
+.book{
+	position: absolute;
+	width: 75%;
+	height: 100%;
+	transition: 1s;
+	transform-style: preserve-3d;
+	transform-origin: left; 
+}
+.face-front, .face-back{
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	padding: 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.face-front{
+	box-shadow: inset 3px 0px 20px -7px black;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.face-back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateZ(-1px) rotateY(180deg);
+	box-shadow: inset -3px 1px 20px -7px black;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    width: 100%;  
+    height: 100%;
+}
+.profile-container h1{
+    font-size: 2.5rem;
+    line-height: 1;
+}
+.profile-container h3{
+    font-size: 1.2rem;
+    color: #2fceea;	
+}
+.profile-container .social-media {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    color: #2fceea;
+    font-size: 2.3rem;
+    border-radius: 50%; /* Hace que el borde sea circular */
+    margin: 0 0.5rem; /* Añade margen entre los iconos */
+}
+.face-back .profile-container img {
+    max-width: 180px;
+    border-radius: 50%;
+    border: .25rem solid #2fceea;
+    margin-bottom: .8rem;
+}
+.profile-container .social-media a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-container .social-media a:hover {
+    background: #2fceea;
+    color: #ffffff;
+}
+.profile-container .btn{
+	width: 7rem;
+	margin-top: 2rem;
+}
+#portada{
+	background: url('../img/bookPortada.jpeg');
+}
+#portada-back{
+	background: url('../img/portadaBack.jpeg');
+}
+#portada, #portada-back{
+	background-size: 100% 100%;
+}
+
+/* Clases que se agregaran con Javascript */
+
+.trnsf{
+	transform: translateX(150px); /* controla el desplazamiento del libro hacia la derecha una vez abierto */
+}
+.trnsf-reset{
+	transform: translateX(0px);
+}
+
+/* @media para hacer el texto responsivo */
+
+@media screen and (max-width: 800px){
+	p{
+		font-size: 12px;
+	}
+}
+
+.experience-container, .education-container{
+	padding: 0.5rem 0.5rem;
+	border-left: 1.5px solid #2fceea;
+	margin-left: 0.7rem;
+}
+
+.experience-container .workeduc-content{
+	position: relative;
+	padding-left: 1rem;
+	margin-bottom: 1.2rem;
+}
+.education-container .workeduc-content{
+	position: relative;
+	padding-left: 1rem;
+	margin-bottom: 1.2rem;
+}
+.experience-container .workeduc-content::before{
+	content: '';
+	position:absolute;
+	top:0;
+	left: -1.1rem;
+	width: 1.2rem;
+	height: 1.2rem;
+	background: #2fceea;
+	border-radius: 50%;
+}
+.education-container .workeduc-content::before{
+	content: '';
+	position:absolute;
+	top:0;
+	left: -1.1rem;
+	width: 1.2rem;
+	height: 1.2rem;
+	background: #2fceea;
+	border-radius: 50%;
+}
+
+.title{
+	text-align: center;
+	margin-bottom: 0.2rem;
+}
+
+.workeduc-content .year{
+	color: #2fceea;
+}
+.workeduc-content .year i{
+	margin-right: .4rem;
+}
+.workeduc-content h3 {
+    margin-bottom: 0rem; /* Ajusta el margen inferior del h3 */
+
+}
+
+.workeduc-content p {
+    margin-top: 0; /* Elimina el margen superior del p */
+}
+
+
+.services-content h3 {
+    font-size: 1rem;
+}
+.services-box .services-content h3 span {
+    display: block; /* Hace que cada span se comporte como un bloque, forzando el salto de línea */
+}
+
+.number-page{
+	position: absolute;
+	bottom: 1.2rem;
+	left: 50%;
+	font-size: .8rem;
+	transform: translateX(-50%);
+}
+
+.btn{
+	display:inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 5.5rem;
+	height: 2rem;
+	background: #2fceea;
+	border: 2px solid #2fceea;
+	border-radius: .3rem;
+	font-size: .9rem;
+	color: white;
+	font-weight: 400;
+	transition: .5s;
+	text-decoration: none;
+	margin: 0 auto; /* Centra el botón horizontalmente */
+    margin-top: .4rem; /* Añade un margen superior para separar el botón del texto */
+}
+.btn:hover{
+	background: transparent;
+	color: #2fceea;
+	border: 2px solid #2fceea;
+	border-radius: .3rem;
+}
+.services-box{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: .4rem;
+}
+.services-box .services-content{
+    flex: 1 1 calc(50% - 2rem); /* Dos columnas, ajusta el espacio horizontal */
+    border: 2px solid #2fceea; /* Borde azul */
+    border-radius: .5rem;
+    padding: .8rem .5rem 1.1rem;
+    text-align: center;
+    background: white; /* Fondo blanco para las cajas */
+    max-width: calc(50% - 2rem); /* Asegura que las cajas no se extiendan más allá del 50% */
+	transition: .3s ease;
+}
+.services-box .services-content:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+.services-content i{
+	font-size: 2rem;
+	color:#2fceea;
+}
+
+.skills-box{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.skills-box .skills-content{
+	flex: 1 1 10rem;
+}
+
+.skills-content h3{
+	font-size: 1.2rem;
+	line-height: 1;
+	margin-bottom: .6rem;
+}
+
+.skills-content .content{
+	display: flex;
+	flex-wrap: wrap;
+	gap: .2rem;	
+}
+.skills-content .content span{
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 4.3rem;
+	height: 4.3rem;	
+	border: 2px solid #2fceea; /* Borde azul */
+    border-radius: .5rem;
+	font-weight: 600;
+	transition: .3s ease;
+	font-size: .8rem;
+}
+.skills-content .content span:hover{
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+.skills-content .content span i{
+	font-size: 2.5rem;
+	color:#2fceea;
+}
+.skills-content .content span h4{
+	font-size: .8rem;
+	text-align: center;
+}
+.contact-box .field{
+	width: 90%;
+	background: transparent;
+	border: 2px solid #2fceea; /* Borde azul */
+	border-radius: .2rem;
+	padding: .6rem;
+	font-size: 1rem;
+	margin-bottom: 1.2rem;
+}
+.contact-box textarea{
+resize: none;
+}
+.contact-box .btn{
+	cursor:pointer;
+}
+.contact-box{
+	text-align: center;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija */
+    z-index: 1000; /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita el scroll si es necesario */
+    background-color: rgb(0,0,0); /* Color de fondo */
+    background-color: rgba(0,0,0,0.4); /* Color de fondo con opacidad */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrado vertical y horizontal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 300px; /* Ancho máximo del modal */
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+/* Icono de flecha en las páginas específicas */
+.face-front::after {
+    content: '>';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform-origin: bottom right;
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out;
+    display: none; /* Por defecto, no mostrar */
+}
+
+/* Aplicar el icono a las páginas específicas */
+.book:nth-child(2) .face-front::after,
+.book:nth-child(3) .face-front::after,
+.book:nth-child(4) .face-front::after {
+    display: flex; /* Mostrar solo en las páginas específicas */
+}
+
+/* Efecto al pasar el ratón */
+.book:nth-child(2) .face-front:hover::after,
+.book:nth-child(3) .face-front:hover::after,
+.book:nth-child(4) .face-front:hover::after {
+    transform: scale(1.2);
+}
