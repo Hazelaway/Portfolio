@@ -205,10 +205,10 @@ body, html {
 	margin-top: 2rem;
 }
 #portada{
-	background: url('../img/bookPortada.jpeg');
+	background: url('img/bookPortada.jpeg');
 }
 #portada-back{
-	background: url('../img/portadaBack.jpeg');
+	background: url('img/portadaBack.jpeg');
 }
 #portada, #portada-back{
 	background-size: 100% 100%;
